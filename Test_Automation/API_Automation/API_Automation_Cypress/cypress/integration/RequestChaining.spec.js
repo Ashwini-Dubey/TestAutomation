@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 let testData;
-const payload = require('../fixtures/user_testdata/user_testdata.json')
+const payload = require('../fixtures/user_testdata/user_testdata')
 
 describe('API Automation - POST Method with fixture' , () => 
 {
@@ -48,7 +48,9 @@ describe('API Automation - POST Method with fixture' , () =>
        .then((Response) =>{
                     const userId = Response.body.data.id
                     cy.log(userId)
+
                 //Request Call for GET Method
+                
                 cy.request({
                     method : 'GET',
                     url : 'https://gorest.co.in/public/v1/users/' + userId,
@@ -62,6 +64,7 @@ describe('API Automation - POST Method with fixture' , () =>
                     expect(Response.body.data).has.property('id',userId)
                 
                 })
+                
             })
     })
 })
