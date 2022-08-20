@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-/*
+
 let testData;
 
 describe ('API Automation - PUT Method', () =>
@@ -19,7 +19,7 @@ describe ('API Automation - PUT Method', () =>
     it('Test to verify that user is updated successfully with all the valid request data.', () => {
         cy.request({
             method : 'PUT',
-            url : 'https://gorest.co.in/public/v2/users/15',
+            url : 'https://gorest.co.in/public/v2/users/10',
             headers : {
                 'authorization' : 'Bearer ' + testData.accessToken
             },
@@ -56,7 +56,7 @@ describe('API Automation - PUT Method with fixture' , () =>
     it('Test to verify that user is updated successfully with all the valid request data from fixtures file.', () => {
         cy.request({
             method : 'PUT',
-            url : 'https://gorest.co.in/public/v2/users/15',
+            url : 'https://gorest.co.in/public/v2/users/10',
             headers : {
                 'authorization' : 'Bearer ' + testData.accessToken
             },
@@ -75,4 +75,3 @@ describe('API Automation - PUT Method with fixture' , () =>
             })
     })
 })
-*/

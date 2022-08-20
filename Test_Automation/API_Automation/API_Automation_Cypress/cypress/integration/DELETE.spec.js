@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-/*
+
 let testData;
 
 describe ('API Automation - DELETE Method', () =>
@@ -16,7 +16,7 @@ describe ('API Automation - DELETE Method', () =>
     it('Test to verify that user is deleted successfully with all the valid request data.', () => {
         cy.request({
             method : 'DELETE',
-            url : 'https://gorest.co.in/public/v2/users/12',
+            url : 'https://gorest.co.in/public/v2/users/10',
             headers : {
                 'authorization' : 'Bearer ' + testData.accessToken
             }
@@ -29,4 +29,3 @@ describe ('API Automation - DELETE Method', () =>
 
 })
 
-*/
