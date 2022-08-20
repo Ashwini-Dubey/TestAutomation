@@ -1,3 +1,6 @@
+/*
+Request Chaining for POST , GET , PUT & DELETE API Call
+*/
 /// <reference types="cypress" />
 
 let testData;
@@ -63,6 +66,40 @@ describe('API Automation - POST Method with fixture' , () =>
                     expect(Response.body.data).has.property('email',email)
                     expect(Response.body.data).has.property('id',userId)
                 
+                })
+
+                //Request Call for PUT Method
+                cy.request({
+                    method : 'PUT',
+                    url : 'https://gorest.co.in/public/v1/users/' +userId,
+                    headers : {
+                        'authorization' : 'Bearer ' + testData.accessToken
+                    },
+                    body : {
+                        "name" : testData.name,
+                        "email" : email,
+                        "status" : testData.status
+                    }
+                })
+                .then((Response) => {
+                    cy.log(JSON.stringify(Response.body))
+                    expect(Response.status).to.eq(200)
+                    expect(Response.body.data.id).is.exist
+                    expect(Response.body.data.name).to.eq('API Tester')
+                    expect(Response.body.data.email).to.eq(email)
+                })
+
+                //Request Call for DELETE Method
+                cy.request({
+                    method : 'DELETE',
+                    url : 'https://gorest.co.in/public/v2/users/' +userId,
+                    headers : {
+                        'authorization' : 'Bearer ' + testData.accessToken
+                    }
+                })
+                .then((Response) => {
+                    cy.log(JSON.stringify(Response.body))
+                    expect(Response.status).to.eq(204)
                 })
                 
             })
